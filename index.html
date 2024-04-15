@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-<title>SayTV Burnley Staging Demo</title>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>SayTV-mdee</title>
+
+    <style>
       @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap");
 
       *,
@@ -20,78 +29,104 @@
         font-family: "Roboto", sans-serif;
 		 background: #eae7e1;
       }
-	  .chatbutton {
-			text-align: right;
-		}
+
 		.chatbutton .btn {
 				margin: 10px 0;
 				background: blue;
 				color: #fff;
+				
 			}
+		.chatbutton{
+		display: flex;
+		justify-content: start;
+		}
 
 	  
+	
 		/* add css in css file */
 		.sayTVToggle {
 			width: 340px;
 			position: fixed;
 			right: -340px;
 			transition: .4s;
+			top: 0;
 		}
-		.sayTVToggle.toggleRight {
-			right: 0px;
+		.sayTVToggle.toggleLeft {
+			    right: -7px;
 		}
 		/* add css in css file */
+	
 
 
     </style>
-<script>
+	<script>
 		// add JS in JS file 
-		function toggleClass() {
+        function toggleClass() {
 		   var element = document.getElementById("toggleSayTVcomponemt");
-		   element.classList.toggle("toggleRight");
+		   element.classList.toggle("toggleLeft");
 		}
 		// add JS in JS file 
 	</script>
-</head>
-<body>
+  </head>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<div class="container-fluid">
-<a class="navbar-brand" href="#">Navbar</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="me-auto"></ul>
-<ul class="navbar-nav mb-2 mb-lg-0">
-<li class="nav-item">
-<a class="nav-link active" aria-current="page" href="/demo">Toggle Right</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" aria-current="page" href="/demo/leftToggle.html">Toggle Left</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="container-fluid">
-<div class="chatbutton">
-<button class="btn" onclick="toggleClass()">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
-<path d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105" />
-</svg> Toggle Chat
-</button>
-</div>
-<div class="row" style="height: 90vh;">
-<div class="col-lg-12" id="sayTV">
-<div class="sayTVToggle" id="toggleSayTVcomponemt">
-<saytv-chat apiurl="https://burnley.tenant.staging.saytv.sq1.io/api/v3" bubbleView="false" authentication="false" token-access="eyJhbGciOiJSUzI1NiIsImtpZCI6ImhEVm9qTGdUVUJsd2h6UkRDcmc2OEl0Rld4bjY1b00xIiwidHlwIjoiSldUIn0.eyJzdWIiOjc1ODg2MCwiY2xpZW50X2lkIjoiQlVSTkxFWUZDIiwiZmlyc3RfbmFtZSI6IlN3YXBuaWwiLCJsYXN0X25hbWUiOiJCaGF2c2FyIiwiZW1haWwiOiJzd2FwbmlsQHNxdWFyZTEuaW8iLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIl0sImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUl8qIiwiUk9MRV9QUk9GSUxFQ09NUExFVEVfKiIsIlJPTEVfT1ZFUjE4XyoiXSwiaXNzIjoiaHR0cHM6Ly9sb2dpbi1zdGFnZS5idXJubGV5Zm9vdGJhbGxjbHViLmNvbSIsImV4cCI6MTcxMjkyNzkwNCwianRpIjoiNTExNDQzOWMtZDQ5NC00Mzc1LWFhNWUtNmNmYjdmNjAwYTlhIn0.PqIk5XjMdE9ldpevyZfhXRLtjTzFb-nCN2jIGk2_nGdktT4zS6Lwc8hglVpetu2MyEPGXZXwd2cTyCbt8icWP_5p9PRUAQol71QcgTI9eE46o8SWholIlICxqGAqAbS1KgeAXEhMwvvAnstLk_wd6GY7D97n10RJ91Zp0wtuiEg" height="calc(100vh - 120px)">
-</saytv-chat>
-</div>
-</div>
-</div>
-</div>
-<script id="saytv-script" src="https://sdk.saytv.net/bundle.beta.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="me-auto"></ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+<!--             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/demo">Toggle Right</a>
+            </li>             -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/demo/leftToggle.html">Toggle Left</a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+	<div class="chatbutton">
+		<button class="btn" onclick="toggleClass()"> 
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
+				<path d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105"/>
+			</svg> Toggle Chat
+		</button>
+	</div>
+      <div class="row" style="height: 90vh;">
+		<div class="col-lg-12" id="sayTV">
+			<div class="sayTVToggle toggleLeft" id="toggleSayTVcomponemt"> 
+				<saytv-chat 
+				  apiurl="https://burnley.tenant.staging.saytv.sq1.io/api/v3"
+				  bubbleView="false"
+				  authentication="false" 
+				  token-access="eyJhbGciOiJSUzI1NiIsImtpZCI6ImhEVm9qTGdUVUJsd2h6UkRDcmc2OEl0Rld4bjY1b00xIiwidHlwIjoiSldUIn0.eyJzdWIiOjc1OTAwOSwiY2xpZW50X2lkIjoiQlVSTkxFWUZDIiwiZmlyc3RfbmFtZSI6Imxha2hhbiIsImxhc3RfbmFtZSI6InNpbmdoMiIsImVtYWlsIjoibGswMjRAeW9wbWFpbC5jb20iLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiZW1haWwiLCJhZGRyZXNzIiwicGhvbmUiXSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSXyoiXSwiYXRpIjoiYTE5MTNkZmMtYmNjZC00ZDJhLTg2ODMtMTNjYzVkN2UyMjI2IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi1zdGFnZS5idXJubGV5Zm9vdGJhbGxjbHViLmNvbSIsImV4cCI6MTczMDA3OTI5OCwianRpIjoiNWE3ZmMzMzktNDE4OS00NjVkLTlkNDQtNDBhODU2YTg2MmMxIn0.hRKBky5IYwbKCCr6H6BDgNNB8xGXL3Oi7NUVGm3BVpNWhpbZobxdX5jvyATGwsGUWEJgcy-85MWY54ZCPlqPIC5WzSEqOFR65d4htPUjWdWf7onzPrsxju2ouSx6bMDqENaiXqc2gKN-q-Vc4sjBl315F0-GwjFTqUwPkhzLL0o"
+					height="calc(100vh - 0px)">
+
+			    </saytv-chat>
+		    </div>
+        </div>
+		
+		
+      </div>
+    </div>
+    <script id="saytv-script" src="https://sdk.saytv.net/bundle.beta.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  </body>
 </html>
